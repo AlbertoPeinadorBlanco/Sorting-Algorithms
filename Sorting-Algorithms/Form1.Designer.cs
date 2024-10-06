@@ -28,95 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnBubble = new Button();
-            btnInsertion = new Button();
-            lstNumbers = new ListView();
-            btnMerge = new Button();
-            btnQuick = new Button();
-            btnSelection = new Button();
-            btnHeap = new Button();
+            panel1 = new Panel();
             SuspendLayout();
             // 
-            // btnBubble
+            // panel1
             // 
-            btnBubble.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBubble.Location = new Point(63, 230);
-            btnBubble.Name = "btnBubble";
-            btnBubble.Size = new Size(126, 46);
-            btnBubble.TabIndex = 0;
-            btnBubble.Text = "Bubble";
-            btnBubble.UseVisualStyleBackColor = true;
-            // 
-            // btnInsertion
-            // 
-            btnInsertion.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnInsertion.Location = new Point(245, 230);
-            btnInsertion.Name = "btnInsertion";
-            btnInsertion.Size = new Size(126, 46);
-            btnInsertion.TabIndex = 1;
-            btnInsertion.Text = "Insertion";
-            btnInsertion.UseVisualStyleBackColor = true;
-            // 
-            // lstNumbers
-            // 
-            lstNumbers.Location = new Point(63, 42);
-            lstNumbers.Name = "lstNumbers";
-            lstNumbers.Size = new Size(672, 146);
-            lstNumbers.TabIndex = 2;
-            lstNumbers.UseCompatibleStateImageBehavior = false;
-            // 
-            // btnMerge
-            // 
-            btnMerge.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMerge.Location = new Point(423, 230);
-            btnMerge.Name = "btnMerge";
-            btnMerge.Size = new Size(126, 46);
-            btnMerge.TabIndex = 3;
-            btnMerge.Text = "Merge";
-            btnMerge.UseVisualStyleBackColor = true;
-            // 
-            // btnQuick
-            // 
-            btnQuick.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnQuick.Location = new Point(609, 230);
-            btnQuick.Name = "btnQuick";
-            btnQuick.Size = new Size(126, 46);
-            btnQuick.TabIndex = 4;
-            btnQuick.Text = "Quick";
-            btnQuick.UseVisualStyleBackColor = true;
-            // 
-            // btnSelection
-            // 
-            btnSelection.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSelection.Location = new Point(157, 309);
-            btnSelection.Name = "btnSelection";
-            btnSelection.Size = new Size(126, 46);
-            btnSelection.TabIndex = 5;
-            btnSelection.Text = "Selection";
-            btnSelection.UseVisualStyleBackColor = true;
-            // 
-            // btnHeap
-            // 
-            btnHeap.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHeap.Location = new Point(337, 309);
-            btnHeap.Name = "btnHeap";
-            btnHeap.Size = new Size(126, 46);
-            btnHeap.TabIndex = 6;
-            btnHeap.Text = "Heap";
-            btnHeap.UseVisualStyleBackColor = true;
+            panel1.Location = new Point(12, 203);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1747, 685);
+            panel1.TabIndex = 0;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(btnHeap);
-            Controls.Add(btnSelection);
-            Controls.Add(btnQuick);
-            Controls.Add(btnMerge);
-            Controls.Add(lstNumbers);
-            Controls.Add(btnInsertion);
-            Controls.Add(btnBubble);
+            ClientSize = new Size(1771, 900);
+            Controls.Add(panel1);
             Name = "frmMain";
             Text = "Sorting Algorithms";
             Load += frmMain_Load;
@@ -125,12 +52,6 @@
 
         #endregion
 
-        private Button btnBubble;
-        private Button btnInsertion;
-        private ListView lstNumbers;
-        private Button btnMerge;
-        private Button btnQuick;
-        private Button btnSelection;
-        private Button btnHeap;
+        private Panel panel1;
     }
 }
