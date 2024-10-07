@@ -35,13 +35,15 @@ namespace Sorting_Algorithms
             Panel panel = (Panel)sender;
             Font font = new System.Drawing.Font(new FontFamily("Times New Roman"), 30);
             string number = "10";
+            int numberSize = Convert.ToInt16(number);
             SizeF textSize = e.Graphics.MeasureString(number, font);
             PointF origin;
-            float xPositionSize = panel.Width / 11;
+            float xPositionSize = panel.Width / 11 - numberSize;
             float xPosition = xPositionSize;
-            float yPosition = panel.Height / 2;
+            float yPosition = panel.Height / 2 - numberSize / 2;
 
-            e.Graphics.DrawEllipse(pen, xPosition - xPositionSize / 4, panel.Height / 3, xPositionSize * 2, xPositionSize * 2);
+            e.Graphics.DrawEllipse(pen, xPosition - xPositionSize / 4 - numberSize, panel.Height / 3 - numberSize ,
+                xPositionSize * 2, xPositionSize * 2);
 
            
             for (int i = 0; i < numbers.Length; i++)
@@ -53,7 +55,6 @@ namespace Sorting_Algorithms
                 xPosition = xPosition + xPositionSize;
 
             }
-
 
         }
 
