@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Sorting_Algorithms
 {
-    internal interface IBubbleSort
+    internal interface ISorting
     {
-        int[] sortingBubble(int[] numbers);
+        void sortingNumbers(int[] array, Graphics g);
 
     }
 }

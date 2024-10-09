@@ -1,6 +1,7 @@
 using System.Xml.Serialization;
 using System.Drawing;
 using System.Runtime.Intrinsics.Arm;
+using System.Runtime.CompilerServices;
 
 
 namespace Sorting_Algorithms
@@ -9,10 +10,7 @@ namespace Sorting_Algorithms
     {
         int[] numbers = new int[10];
         Graphics g;
-        Pen pen = new Pen(Color.Red, 10);
-
-        Font font = new System.Drawing.Font(new FontFamily("Times New Roman"), 30);
-        string number = "10";
+       
 
 
         public frmMain()
@@ -22,7 +20,7 @@ namespace Sorting_Algorithms
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            g = panel1.CreateGraphics();
+           
             numbersGenerator();
 
 
@@ -35,29 +33,8 @@ namespace Sorting_Algorithms
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            Panel panel = (Panel)sender;
 
-            int numberSize = Convert.ToInt16(number);
-
-            SizeF textSize = e.Graphics.MeasureString(number, font);
-            PointF origin;
-            float xPositionSize = panel.Width / 11 - numberSize;
-            float xPosition = xPositionSize;
-            float yPosition = panel.Height / 2 - numberSize / 2;
-
-            e.Graphics.DrawEllipse(pen, xPosition - xPositionSize / 4 - numberSize, panel.Height / 3 - numberSize,
-                xPositionSize * 2, xPositionSize * 2);
-
-
-            for (int i = 0; i < numbers.Length; i++)
-            {
-                origin = new PointF(xPosition, yPosition);
-
-                e.Graphics.DrawString(numbers[i].ToString(), font, Brushes.White, origin);
-
-                xPosition = xPosition + xPositionSize;
-
-            }
+           graphicsGenerator();
 
         }
 
@@ -71,17 +48,13 @@ namespace Sorting_Algorithms
             }
         }
 
-
-        private void btnStart_Click(object sender, EventArgs e)
+        private void graphicsGenerator()
         {
-            
-        }
+            g = panel1.CreateGraphics();
+            Pen pen = new Pen(Color.Red, 10);
 
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            
-            numbersGenerator();
-            g.Clear(Color.LightSlateGray);
+            Font font = new System.Drawing.Font(new FontFamily("Times New Roman"), 30);
+            string number = "10";
 
             int numberSize = Convert.ToInt16(number);
 
@@ -104,7 +77,20 @@ namespace Sorting_Algorithms
                 xPosition = xPosition + xPositionSize;
 
             }
-            g = panel1.CreateGraphics();
+        }
+
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            g.Clear(Color.LightSlateGray);
+            numbersGenerator();
+            graphicsGenerator();
+
         }
     }
 }

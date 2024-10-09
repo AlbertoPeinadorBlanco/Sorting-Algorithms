@@ -7,30 +7,53 @@ using System.Threading.Tasks;
 
 namespace Sorting_Algorithms
 {
-    internal class BubbleSort : IBubbleSort
+    internal class BubbleSort : ISorting
     {
+        private bool _isSorted;
+        private int[] numbersArray;
+        private Graphics g;
+        private Pen pen = new Pen(Color.Red, 10);
 
-        public int[] sortingBubble(int[] numbers)
+        public void sortingNumbers(int[] array, Graphics gr)
         {
-            int length = numbers.Length;
+            numbersArray = array;
+            g = gr;
+            int length = numbersArray.Length;
 
-            for(int i = 0; i < length; i++)
+
+            while (!_isSorted)
             {
-                for(int j = 0; j < length; j++)
+                for (int i = 0; i < length; i++)
                 {
-                    if(numbers[j] > numbers[j + 1])
+                    for (int j = 0; j < length; j++)
                     {
-                        int temp = numbers[j];
-                        numbers[j] = numbers[j+1];
-                        numbers[j + 1] = temp;
+                        if (array[j] > array[j + 1])
+                        {
+                            int temp = array[j];
+                            array[j] = array[j + 1];
+                            array[j + 1] = temp;
 
+                        }
                     }
+
                 }
-                
+
+                _isSorted = isSorted();
             }
 
-            return numbers;
+           
+        }
 
+        private bool isSorted()
+        {
+            for(int i = 0; i < numbersArray.Length; i++)
+            {
+                if (numbersArray[i] > numbersArray[i + 1])
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
