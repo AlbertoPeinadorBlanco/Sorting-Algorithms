@@ -8,16 +8,15 @@ namespace Sorting_Algorithms
 {
     internal class BubbleSortInjector
     {
-        private readonly ISorting iBubbleSort;
-
+        private readonly ISorting sorting;
         public BubbleSortInjector(ISorting _iBubbleSort)
         {
-            iBubbleSort = _iBubbleSort;
+            sorting = _iBubbleSort;
         }
 
-        public void numbersSorting(int[] array, Graphics g)
+        public void numbersSorting(Panel panel, int[] array, Graphics g)
         {
-            iBubbleSort.sortingNumbers(array, g);
+            sorting.sortingNumbers(panel, array, g); 
         }
 
     }

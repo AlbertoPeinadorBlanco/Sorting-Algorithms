@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sorting_Algorithms
 {
-    internal interface ISorting
+    internal interface IDrawingArray
     {
-        void sortingNumbers(Panel panel, int[] array, Graphics g);
-
+        void graphicsGenerator(Panel panel, Graphics g, int[] numbers);
     }
 }

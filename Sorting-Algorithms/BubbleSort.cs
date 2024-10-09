@@ -12,14 +12,14 @@ namespace Sorting_Algorithms
         private bool _isSorted;
         private int[] numbersArray;
         private Graphics g;
-        private Pen pen = new Pen(Color.Red, 10);
+        Panel panel;
 
-        public void sortingNumbers(int[] array, Graphics gr)
+        public void sortingNumbers(Panel _panel, int[] array, Graphics gr)
         {
+            panel = _panel;
             numbersArray = array;
             g = gr;
-            int length = numbersArray.Length;
-
+            int length = numbersArray.Length - 1;
 
             while (!_isSorted)
             {
@@ -46,7 +46,7 @@ namespace Sorting_Algorithms
 
         private bool isSorted()
         {
-            for(int i = 0; i < numbersArray.Length; i++)
+            for(int i = 0; i < numbersArray.Length - 1; i++)
             {
                 if (numbersArray[i] > numbersArray[i + 1])
                 {
