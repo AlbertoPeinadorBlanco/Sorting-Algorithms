@@ -23,8 +23,6 @@ namespace Sorting_Algorithms
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            sorting = new BubbleSort();
-            bubbleSort = new BubbleSortInjector(sorting);
             drawing = new drawingArray();
             drawingArray = new DrawingArrayInjector(drawing);
 
@@ -58,14 +56,20 @@ namespace Sorting_Algorithms
         {
             drawingArray.generatorGraphics(panel1, g, numbers);
 
-            //g.DrawEllipse(pen, xPosition - xPositionSize / 4 - numberSize, panel1.Height / 3 - numberSize,
-            //xPositionSize * 2, xPositionSize * 2);
         }
         
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            
+            g.Clear(Color.LightSlateGray);
+
+            sorting = new BubbleSort();
+            bubbleSort = new BubbleSortInjector(sorting);
+            bubbleSort.numbersSorting(panel1, numbers, g);
+
+            graphicsGenerator();
+
+
         }
 
         private void btnReset_Click(object sender, EventArgs e)

@@ -50,11 +50,11 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel1.BackColor = Color.LightSlateGray;
             panel1.Location = new Point(12, 203);
             panel1.Name = "panel1";
-            panel1.Size = new Size(2200, 900);
+            panel1.Size = new Size(1800, 900);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -100,9 +100,10 @@
             // 
             // btnStart
             // 
-            btnStart.Location = new Point(313, 112);
+            btnStart.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnStart.Location = new Point(315, 102);
             btnStart.Name = "btnStart";
-            btnStart.Size = new Size(112, 34);
+            btnStart.Size = new Size(150, 50);
             btnStart.TabIndex = 3;
             btnStart.Text = "Start";
             btnStart.UseVisualStyleBackColor = true;
@@ -110,9 +111,10 @@
             // 
             // btnReset
             // 
-            btnReset.Location = new Point(456, 112);
+            btnReset.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnReset.Location = new Point(507, 102);
             btnReset.Name = "btnReset";
-            btnReset.Size = new Size(112, 34);
+            btnReset.Size = new Size(150, 50);
             btnReset.TabIndex = 4;
             btnReset.Text = "Reset";
             btnReset.UseVisualStyleBackColor = true;
@@ -121,20 +123,21 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(12, 62);
             label1.Name = "label1";
-            label1.Size = new Size(254, 25);
+            label1.Size = new Size(332, 32);
             label1.TabIndex = 5;
             label1.Text = "Chose a Sorting Algorithm:";
             // 
             // menuStrip1
             // 
+            menuStrip1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             menuStrip1.ImageScalingSize = new Size(24, 24);
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem2, helpToolStripMenuItem1 });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(2378, 33);
+            menuStrip1.Size = new Size(1827, 40);
             menuStrip1.TabIndex = 6;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -142,34 +145,37 @@
             // 
             fileToolStripMenuItem2.DropDownItems.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
             fileToolStripMenuItem2.Name = "fileToolStripMenuItem2";
-            fileToolStripMenuItem2.Size = new Size(54, 29);
+            fileToolStripMenuItem2.Size = new Size(67, 36);
             fileToolStripMenuItem2.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(141, 34);
+            exitToolStripMenuItem.Size = new Size(155, 40);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // helpToolStripMenuItem1
             // 
             helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            helpToolStripMenuItem1.Size = new Size(65, 29);
+            helpToolStripMenuItem1.Size = new Size(80, 36);
             helpToolStripMenuItem1.Text = "Help";
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2378, 1634);
+            ClientSize = new Size(1827, 1123);
             Controls.Add(label1);
             Controls.Add(btnReset);
             Controls.Add(btnStart);
             Controls.Add(cbChoseAlgorithm);
             Controls.Add(menuStrip1);
             Controls.Add(panel1);
+            Font = new Font("Segoe UI", 9F);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
             Name = "frmMain";
             Text = "Sorting Algorithms";
             Load += frmMain_Load;
