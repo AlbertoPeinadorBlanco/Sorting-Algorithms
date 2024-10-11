@@ -4,10 +4,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace Sorting_Algorithms
 {
-    internal class BubbleSort : drawingArray, ISorting
+    internal class BubbleSort :  DrawingArray, ISorting
     {
         private bool _isSorted;
         private int[] numbersArray;
@@ -16,66 +17,50 @@ namespace Sorting_Algorithms
         private Pen pen;
         private PointF origin;
 
-
-        public void sortingNumbers(Panel _panel, int[] array, Graphics gr)
+        public BubbleSort(Panel _panel, int[] _numbers, Graphics _g) : base(_panel, _numbers, _g)
         {
-            pen = new Pen(Color.Red, 20);
             panel = _panel;
-            numbersArray = array;
-            g = gr;
+            numbersArray = _numbers;
+            g = _g;
+            pen = new Pen(Color.Red, 10);
+        }
 
+        public void sortingNumbers()
+        {
+            
             int length = numbersArray.Length - 1;
 
            
-
-
             for (int i = 0; i < length; i++)
             {
-                _isSorted = isSorted();
+                _isSorted = this.isSorted();
 
                 if (_isSorted)
                 {
                     resetGraphics(1);
 
-
                     break;
                 }
-
-
-
                 for (int j = 0; j < length; j++)
                 {
 
                     resetGraphics(j);
 
 
-                    if (array[j] > array[j + 1])
+                    if (numbersArray[j] > numbersArray[j + 1])
                     {
-                        int temp = array[j];
-                        array[j] = array[j + 1];
-                        array[j + 1] = temp;
+                        int temp = numbersArray[j];
+                        numbersArray[j] = numbersArray[j + 1];
+                        numbersArray[j + 1] = temp;
 
                     }
                     Thread.Sleep(1000);
 
                 }
-            }
-
-            
+            }   
    
         }
 
-        private bool isSorted()
-        {
-            for(int i = 0; i < numbersArray.Length - 1; i++)
-            {
-                if (numbersArray[i] > numbersArray[i + 1])
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
         
         public void resetGraphics(int _j)
         {
@@ -91,10 +76,11 @@ namespace Sorting_Algorithms
 
             g.Clear(Color.LightSlateGray);
 
-            this.graphicsGenerator(panel, g, numbersArray);
+            this.graphicsGenerator();
 
             g.DrawEllipse(pen, xPosition - xPositionSize / 4 - numberSize + xPosition * j, panel.Height / 3 + numberSize * 2,
                 xPositionSize * 2, xPositionSize * 2);
+
         }
     }
 }

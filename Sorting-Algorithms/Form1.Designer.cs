@@ -43,6 +43,7 @@
             fileToolStripMenuItem2 = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
             helpToolStripMenuItem1 = new ToolStripMenuItem();
+            btnPause = new Button();
             contextMenuStrip1.SuspendLayout();
             contextMenuStrip2.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -97,6 +98,8 @@
             cbChoseAlgorithm.Name = "cbChoseAlgorithm";
             cbChoseAlgorithm.Size = new Size(269, 33);
             cbChoseAlgorithm.TabIndex = 2;
+            cbChoseAlgorithm.Text = "Select Algorithm...";
+            cbChoseAlgorithm.SelectedIndexChanged += cbChoseAlgorithm_SelectedIndexChanged;
             // 
             // btnStart
             // 
@@ -161,11 +164,23 @@
             helpToolStripMenuItem1.Size = new Size(80, 36);
             helpToolStripMenuItem1.Text = "Help";
             // 
+            // btnPause
+            // 
+            btnPause.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPause.Location = new Point(696, 102);
+            btnPause.Name = "btnPause";
+            btnPause.Size = new Size(358, 50);
+            btnPause.TabIndex = 7;
+            btnPause.Text = "Pause / Resume";
+            btnPause.UseVisualStyleBackColor = true;
+            btnPause.Click += btnPause_Click;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1827, 1123);
+            Controls.Add(btnPause);
             Controls.Add(label1);
             Controls.Add(btnReset);
             Controls.Add(btnStart);
@@ -203,5 +218,6 @@
         private ToolStripMenuItem fileToolStripMenuItem2;
         private ToolStripMenuItem helpToolStripMenuItem1;
         private ToolStripMenuItem exitToolStripMenuItem;
+        private Button btnPause;
     }
 }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sorting_Algorithms
 {
-    internal interface IDrawingArray
+    internal interface INextStep
     {
-        void graphicsGenerator();
+        void NextSteep();
     }
 }

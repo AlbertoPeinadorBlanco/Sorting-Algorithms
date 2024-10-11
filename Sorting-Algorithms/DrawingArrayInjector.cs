@@ -15,9 +15,9 @@ namespace Sorting_Algorithms
             iDrawingArray = _iDrawingArray;
         }
 
-        public void generatorGraphics(Panel _panel, Graphics _g, int[] _numbers)
+        public void generatorGraphics()
         {
-            iDrawingArray.graphicsGenerator(_panel, _g, _numbers);
+            iDrawingArray.graphicsGenerator();
         }
     }
 }

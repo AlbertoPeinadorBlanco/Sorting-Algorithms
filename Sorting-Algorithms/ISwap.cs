@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sorting_Algorithms
 {
-    internal interface IDrawingArray
+    internal interface ISwap
     {
-        void graphicsGenerator();
+        void Swap(int i, int p);
     }
 }

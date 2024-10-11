@@ -8,7 +8,7 @@ namespace Sorting_Algorithms
 {
     internal interface ISorting
     {
-        void sortingNumbers(Panel panel, int[] array, Graphics g);
+        void sortingNumbers();
 
     }
 }
