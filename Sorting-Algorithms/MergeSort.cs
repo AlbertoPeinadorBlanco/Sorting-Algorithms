@@ -23,9 +23,29 @@ namespace Sorting_Algorithms
             pen = new Pen(Color.Red, 10);
 
         }
+
+
         public void sortingNumbers()
         {
-            throw new NotImplementedException();
+            StaticValues.time = 1000;
+            
+
+        }
+
+        public void resetGraphics()
+        {
+            int numberSize = 10;
+
+
+            float xPositionSize = panel.Width / 11 - numberSize;
+            float xPosition = xPositionSize;
+            float yPosition = panel.Height / 2 - numberSize / 2;
+
+            origin = new PointF(xPosition, yPosition);
+
+            g.Clear(Color.LightSlateGray);
+
+            this.graphicsGenerator();
         }
     }
 }

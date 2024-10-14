@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sorting_Algorithms
 {
-    internal class DrawingArray : IDrawingArray, INextStep, ISwap, IisSorted
+    internal class DrawingArray : IDrawingArray, IisSorted
     {
         private Graphics g;
         private Panel panel;
@@ -58,22 +58,5 @@ namespace Sorting_Algorithms
             return true;
         }
 
-        public void NextSteep()
-        {
-            for (int i = 0; i < numbers.Count() - 1; i++)
-            {
-                if (numbers[i] > numbers[i + 1])
-                {
-                    Swap(i, i + 1);
-                }
-            }
-        }
-
-        public void Swap(int i, int p)
-        {
-            int temp = numbers[i];
-            numbers[i] = numbers[i + 1];
-            numbers[i + 1] = temp;
-        }
     }
 }

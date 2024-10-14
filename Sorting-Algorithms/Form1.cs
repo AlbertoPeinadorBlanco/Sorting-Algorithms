@@ -3,20 +3,20 @@ using System.Drawing;
 using System.Runtime.Intrinsics.Arm;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
+using System.Timers;
 
 
 namespace Sorting_Algorithms
 {
     public partial class frmMain : Form
     {
+
         int[] numbers = new int[10];
         Graphics g;
         ISorting sorting;
         SortInjector sort;
         IDrawingArray drawing;
         DrawingArrayInjector drawingArray;
-        BackgroundWorker bgWorker;
-        bool isPaused = false;
         string algorithmName;
 
 
@@ -35,7 +35,8 @@ namespace Sorting_Algorithms
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            numbersGenerator(); 
+            numbersGenerator();
+            btnCancel.Enabled = false;
 
         }
 
@@ -49,29 +50,56 @@ namespace Sorting_Algorithms
             graphicsGenerator();
 
         }
+        private void bgWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
 
+            try
+            {
+
+                if (bgWorker.CancellationPending == true)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+                else
+                {
+                    if (algorithmName == "BubbleSort")
+                    {
+                        sorting = new BubbleSort(panel1, numbers, g);
+
+                    }
+                    if (algorithmName == "MergeSort")
+                    {
+                        sorting = new MergeSort(panel1, numbers, g);
+                    }
+
+
+                    sort = new SortInjector(sorting);
+
+                    sort.numbersSorting();
+
+                    graphicsGenerator();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
             g.Clear(Color.LightSlateGray);
 
+            btnStart.Enabled = false;
+            btnReset.Enabled = false;
+            cbChoseAlgorithm.Enabled = false;
 
-            if(algorithmName == "BubbleSort")
-            {
-                sorting = new BubbleSort(panel1, numbers, g);
+            btnCancel.Enabled = true;
 
-            }
-            if(algorithmName == "MergeSort")
-            {
-                sorting = new MergeSort(panel1, numbers, g);
-            }
-
-            sort = new SortInjector(sorting);
-
-            sort.numbersSorting();
-
-            graphicsGenerator();
-
+            bgWorker.RunWorkerAsync();
 
         }
 
@@ -81,30 +109,35 @@ namespace Sorting_Algorithms
         {
             g.Clear(Color.LightSlateGray);
 
+            btnStart.Enabled = true;
+            btnCancel.Enabled = false;
+
             numbersGenerator();
 
             graphicsGenerator();
+
+        }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            btnReset.Enabled = true;
+            btnCancel.Enabled = false;
+            StaticValues.time = 0;
+            cbChoseAlgorithm.Enabled = true;
 
         }
 
         private void cbChoseAlgorithm_SelectedIndexChanged(object sender, EventArgs e)
         {
             g.Clear(Color.LightSlateGray);
+
+            btnStart.Enabled = true;
+
             graphicsGenerator();
 
             algorithmName = cbChoseAlgorithm.SelectedItem.ToString();
 
-        }
-        private void btnPause_Click(object sender, EventArgs e)
-        {
-            if (!isPaused)
-            {
-                isPaused = true;
-            }
-            else
-            {
-                isPaused = false;
-            }
+            bgWorker.CancelAsync();
+
         }
 
         public void populateCombo()
@@ -115,10 +148,11 @@ namespace Sorting_Algorithms
 
             ClassList.Sort();
 
-            foreach(string entry in ClassList)
+            foreach (string entry in ClassList)
             {
                 cbChoseAlgorithm.Items.Add(entry);
             }
+
             cbChoseAlgorithm.SelectedIndex = 0;
 
         }
@@ -138,5 +172,6 @@ namespace Sorting_Algorithms
 
         }
 
+       
     }
 }

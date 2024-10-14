@@ -43,7 +43,8 @@
             fileToolStripMenuItem2 = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
             helpToolStripMenuItem1 = new ToolStripMenuItem();
-            btnPause = new Button();
+            bgWorker = new System.ComponentModel.BackgroundWorker();
+            btnCancel = new Button();
             contextMenuStrip1.SuspendLayout();
             contextMenuStrip2.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -115,11 +116,11 @@
             // btnReset
             // 
             btnReset.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReset.Location = new Point(507, 102);
+            btnReset.Location = new Point(708, 102);
             btnReset.Name = "btnReset";
-            btnReset.Size = new Size(150, 50);
+            btnReset.Size = new Size(224, 50);
             btnReset.TabIndex = 4;
-            btnReset.Text = "Reset";
+            btnReset.Text = "Reset Numbers";
             btnReset.UseVisualStyleBackColor = true;
             btnReset.Click += btnReset_Click;
             // 
@@ -164,23 +165,29 @@
             helpToolStripMenuItem1.Size = new Size(80, 36);
             helpToolStripMenuItem1.Text = "Help";
             // 
-            // btnPause
+            // bgWorker
             // 
-            btnPause.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPause.Location = new Point(696, 102);
-            btnPause.Name = "btnPause";
-            btnPause.Size = new Size(358, 50);
-            btnPause.TabIndex = 7;
-            btnPause.Text = "Pause / Resume";
-            btnPause.UseVisualStyleBackColor = true;
-            btnPause.Click += btnPause_Click;
+            bgWorker.WorkerReportsProgress = true;
+            bgWorker.WorkerSupportsCancellation = true;
+            bgWorker.DoWork += bgWorker_DoWork;
+            // 
+            // btnCancel
+            // 
+            btnCancel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancel.Location = new Point(484, 102);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(204, 50);
+            btnCancel.TabIndex = 7;
+            btnCancel.Text = "End Sorting";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1827, 1123);
-            Controls.Add(btnPause);
+            Controls.Add(btnCancel);
             Controls.Add(label1);
             Controls.Add(btnReset);
             Controls.Add(btnStart);
@@ -192,6 +199,7 @@
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
             Name = "frmMain";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Sorting Algorithms";
             Load += frmMain_Load;
             contextMenuStrip1.ResumeLayout(false);
@@ -218,6 +226,7 @@
         private ToolStripMenuItem fileToolStripMenuItem2;
         private ToolStripMenuItem helpToolStripMenuItem1;
         private ToolStripMenuItem exitToolStripMenuItem;
-        private Button btnPause;
+        private System.ComponentModel.BackgroundWorker bgWorker;
+        private Button btnCancel;
     }
 }

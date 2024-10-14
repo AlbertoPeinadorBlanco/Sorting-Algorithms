@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Sorting_Algorithms
 {
-    internal interface INextStep
+    internal class StaticValues
     {
-        void nextStep();
+        public static int time;
     }
 }
