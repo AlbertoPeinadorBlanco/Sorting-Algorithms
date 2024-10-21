@@ -72,6 +72,10 @@ namespace Sorting_Algorithms
                     {
                         sorting = new MergeSort(panel1, numbers, g);
                     }
+                    if(algorithmName == "QuickSort")
+                    {
+                        sorting = new QuickSort(panel1, numbers, g);
+                    }
 
 
                     sort = new SortInjector(sorting);
@@ -79,6 +83,10 @@ namespace Sorting_Algorithms
                     sort.numbersSorting();
 
                     graphicsGenerator();
+                    //resetButtons();
+
+                    
+                    
                 }
 
             }
@@ -87,6 +95,11 @@ namespace Sorting_Algorithms
 
             }
 
+        }
+        private void resetButtons()
+        {
+            btnCancel.Enabled = false;
+            btnReset.Enabled = true;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -100,6 +113,7 @@ namespace Sorting_Algorithms
             btnCancel.Enabled = true;
 
             bgWorker.RunWorkerAsync();
+
 
         }
 
