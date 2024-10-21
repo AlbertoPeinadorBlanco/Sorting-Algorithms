@@ -76,6 +76,10 @@ namespace Sorting_Algorithms
                     {
                         sorting = new QuickSort(panel1, numbers, g);
                     }
+                    if (algorithmName == "InsertionSort")
+                    {
+                        sorting = new QuickSort(panel1, numbers, g);
+                    }
 
 
                     sort = new SortInjector(sorting);
