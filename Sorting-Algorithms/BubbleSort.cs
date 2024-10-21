@@ -24,13 +24,14 @@ namespace Sorting_Algorithms
             numbersArray = _numbers;
             g = _g;
             pen = new Pen(Color.Red, 10);
+            StaticValues.time = 1000;
 
-        } 
+
+        }
 
         public void sortingNumbers()
         {
 
-            StaticValues.time = 1000;
 
             int length = numbersArray.Length - 1;
 

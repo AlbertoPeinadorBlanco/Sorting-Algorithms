@@ -18,6 +18,8 @@ namespace Sorting_Algorithms
         private PointF origin;
         private int left;
         private int right;
+        private int time;
+
 
         public MergeSort(Panel _panel, int[] _numbers, Graphics _g) : base(_panel, _numbers, _g)
         {
@@ -25,6 +27,7 @@ namespace Sorting_Algorithms
             g = _g;
             panel = _panel;
             pen = new Pen(Color.Red, 10);
+            time = StaticValues.time = 1000;
 
         }
 
@@ -130,6 +133,14 @@ namespace Sorting_Algorithms
                 array[k++] = rightTempArray[j++];
 
             }
+            time = StaticValues.time;
+
+            Thread.Sleep(time);
+
+            g.Clear(Color.LightSlateGray);
+
+            this.graphicsGenerator();
+
         }
     }
 }

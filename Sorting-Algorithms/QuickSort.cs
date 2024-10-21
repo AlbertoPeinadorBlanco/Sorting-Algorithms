@@ -23,7 +23,8 @@ namespace Sorting_Algorithms
             numbersArray = _numbers;
             g = _g;
             pen = new Pen(Color.Red, 10);
-            time = StaticValues.time;
+            time = StaticValues.time = 1000;
+
         }
         public void sortingNumbers()
         {
@@ -39,7 +40,7 @@ namespace Sorting_Algorithms
 
             int pivot = arr[high];
 
-            
+
             int i = low - 1;
 
             
@@ -50,6 +51,7 @@ namespace Sorting_Algorithms
                     i++;
                     Swap(arr, i, j);
                 }
+
             }
 
            

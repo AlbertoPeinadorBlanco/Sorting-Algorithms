@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Sorting_Algorithms
 {
@@ -23,39 +24,41 @@ namespace Sorting_Algorithms
             numbersArray = _numbers;
             g = _g;
             pen = new Pen(Color.Red, 10);
-            time = StaticValues.time;
+            time = StaticValues.time = 1000;
         }
 
         public void sortingNumbers()
         {
-            insertionSort(numbersArray);
 
+            int n = numbersArray.Length;
+            for (int i = 1; i < n; ++i)
+            {
+                int key = numbersArray[i];
+                int j = i - 1;
+                
 
-            g.Clear(Color.LightSlateGray);
-
-            this.graphicsGenerator();
-
-        }
-
-        public void insertionSort(int[] array)
-        {
-            
-                int n = array.Length;
-                for (int i = 1; i < n; ++i)
+                while (j >= 0 && numbersArray[j] > key)
                 {
-                    int key = array[i];
-                    int j = i - 1;
+                   numbersArray[j + 1] = numbersArray[j];
+                    j = j - 1;
 
                     
-                    while (j >= 0 && array[j] > key)
-                    {
-                        array[j + 1] = array[j];
-                        j = j - 1;
-                    }
-                    array[j + 1] = key;
                 }
-            }
 
-        
+                time = StaticValues.time;
+
+                Thread.Sleep(time);
+
+                g.Clear(Color.LightSlateGray);
+
+                this.graphicsGenerator();
+
+                numbersArray[j + 1] = key;
+
+
+            }
+        }
+
+  
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Sorting_Algorithms
 {
-    partial class frmMain
+    partial class FormMain
     {
         /// <summary>
         ///  Required designer variable.

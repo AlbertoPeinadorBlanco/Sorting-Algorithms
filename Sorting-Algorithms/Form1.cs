@@ -8,7 +8,7 @@ using System.Timers;
 
 namespace Sorting_Algorithms
 {
-    public partial class frmMain : Form
+    public partial class FormMain : Form
     {
 
         int[] numbers = new int[10];
@@ -20,7 +20,7 @@ namespace Sorting_Algorithms
         string algorithmName;
 
 
-        public frmMain()
+        public FormMain()
         {
             InitializeComponent();
 
@@ -78,7 +78,7 @@ namespace Sorting_Algorithms
                     }
                     if (algorithmName == "InsertionSort")
                     {
-                        sorting = new QuickSort(panel1, numbers, g);
+                        sorting = new InsertionSort(panel1, numbers, g);
                     }
 
 
@@ -86,7 +86,7 @@ namespace Sorting_Algorithms
 
                     sort.numbersSorting();
 
-                    graphicsGenerator();
+                    //graphicsGenerator();
                     //resetButtons();
 
                     
