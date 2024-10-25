@@ -42,9 +42,7 @@
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem2 = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
-            helpToolStripMenuItem1 = new ToolStripMenuItem();
             bgWorker = new System.ComponentModel.BackgroundWorker();
-            btnCancel = new Button();
             contextMenuStrip1.SuspendLayout();
             contextMenuStrip2.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -116,7 +114,7 @@
             // btnReset
             // 
             btnReset.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReset.Location = new Point(708, 102);
+            btnReset.Location = new Point(504, 102);
             btnReset.Name = "btnReset";
             btnReset.Size = new Size(224, 50);
             btnReset.TabIndex = 4;
@@ -138,7 +136,7 @@
             // 
             menuStrip1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem2, helpToolStripMenuItem1 });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem2 });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1827, 40);
@@ -149,21 +147,15 @@
             // 
             fileToolStripMenuItem2.DropDownItems.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
             fileToolStripMenuItem2.Name = "fileToolStripMenuItem2";
-            fileToolStripMenuItem2.Size = new Size(67, 36);
+            fileToolStripMenuItem2.Size = new Size(182, 36);
             fileToolStripMenuItem2.Text = "File";
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(155, 40);
+            exitToolStripMenuItem.Size = new Size(270, 40);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
-            // 
-            // helpToolStripMenuItem1
-            // 
-            helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            helpToolStripMenuItem1.Size = new Size(80, 36);
-            helpToolStripMenuItem1.Text = "Help";
             // 
             // bgWorker
             // 
@@ -171,23 +163,11 @@
             bgWorker.WorkerSupportsCancellation = true;
             bgWorker.DoWork += bgWorker_DoWork;
             // 
-            // btnCancel
-            // 
-            btnCancel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancel.Location = new Point(484, 102);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(204, 50);
-            btnCancel.TabIndex = 7;
-            btnCancel.Text = "End Sorting";
-            btnCancel.UseVisualStyleBackColor = true;
-            btnCancel.Click += btnCancel_Click;
-            // 
-            // frmMain
+            // FormMain
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1827, 1123);
-            Controls.Add(btnCancel);
             Controls.Add(label1);
             Controls.Add(btnReset);
             Controls.Add(btnStart);
@@ -198,7 +178,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
-            Name = "frmMain";
+            Name = "FormMain";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sorting Algorithms";
             Load += frmMain_Load;
@@ -224,9 +204,7 @@
         private Label label1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem2;
-        private ToolStripMenuItem helpToolStripMenuItem1;
         private ToolStripMenuItem exitToolStripMenuItem;
         private System.ComponentModel.BackgroundWorker bgWorker;
-        private Button btnCancel;
     }
 }

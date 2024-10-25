@@ -15,7 +15,6 @@ namespace Sorting_Algorithms
         private Panel panel;
         private Pen pen;
         private PointF origin;
-        private int time;
 
         public QuickSort(Panel _panel, int[] _numbers, Graphics _g) : base (_panel, _numbers, _g)
         {
@@ -23,7 +22,6 @@ namespace Sorting_Algorithms
             numbersArray = _numbers;
             g = _g;
             pen = new Pen(Color.Red, 10);
-            time = StaticValues.time = 1000;
 
         }
         public void sortingNumbers()
@@ -34,6 +32,7 @@ namespace Sorting_Algorithms
 
             this.graphicsGenerator();
         }
+
 
         static int Partition(int[] arr, int low, int high)
         {
@@ -76,6 +75,8 @@ namespace Sorting_Algorithms
                 
                 quickSort(arr, low, pi - 1);
                 quickSort(arr, pi + 1, high);
+
+
             }
         }
 

@@ -36,7 +36,6 @@ namespace Sorting_Algorithms
         private void frmMain_Load(object sender, EventArgs e)
         {
             numbersGenerator();
-            btnCancel.Enabled = false;
 
         }
 
@@ -84,12 +83,7 @@ namespace Sorting_Algorithms
 
                     sort = new SortInjector(sorting);
 
-                    sort.numbersSorting();
-
-                    //graphicsGenerator();
-                    //resetButtons();
-
-                    
+                    sort.numbersSorting();   
                     
                 }
 
@@ -100,21 +94,14 @@ namespace Sorting_Algorithms
             }
 
         }
-        private void resetButtons()
-        {
-            btnCancel.Enabled = false;
-            btnReset.Enabled = true;
-        }
-
+ 
         private void btnStart_Click(object sender, EventArgs e)
         {
             g.Clear(Color.LightSlateGray);
 
             btnStart.Enabled = false;
-            btnReset.Enabled = false;
             cbChoseAlgorithm.Enabled = false;
 
-            btnCancel.Enabled = true;
 
             bgWorker.RunWorkerAsync();
 
@@ -128,21 +115,14 @@ namespace Sorting_Algorithms
             g.Clear(Color.LightSlateGray);
 
             btnStart.Enabled = true;
-            btnCancel.Enabled = false;
+            cbChoseAlgorithm.Enabled = true;
 
             numbersGenerator();
 
             graphicsGenerator();
 
         }
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            btnReset.Enabled = true;
-            btnCancel.Enabled = false;
-            StaticValues.time = 0;
-            cbChoseAlgorithm.Enabled = true;
-
-        }
+      
 
         private void cbChoseAlgorithm_SelectedIndexChanged(object sender, EventArgs e)
         {

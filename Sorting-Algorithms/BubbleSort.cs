@@ -16,7 +16,6 @@ namespace Sorting_Algorithms
         private Panel panel;
         private Pen pen;
         private PointF origin;
-        private int time;
 
         public BubbleSort(Panel _panel, int[] _numbers, Graphics _g) : base(_panel, _numbers, _g)
         {
@@ -24,7 +23,6 @@ namespace Sorting_Algorithms
             numbersArray = _numbers;
             g = _g;
             pen = new Pen(Color.Red, 10);
-            StaticValues.time = 1000;
 
 
         }
@@ -43,14 +41,20 @@ namespace Sorting_Algorithms
 
                 if (_isSorted)
                 {
-                    resetGraphics(0);
+                    g.Clear(Color.LightSlateGray);
+
+                    //resetGraphics(0);
+                    this.graphicsGenerator();
 
                     break;
                 }
                 for (int j = 0; j < length; j++)
                 {
-                    
-                    resetGraphics(j);
+                    g.Clear(Color.LightSlateGray);
+
+                    this.graphicsGenerator();
+
+                    //resetGraphics(j);
 
 
                     if (numbersArray[j] > numbersArray[j + 1])
@@ -61,9 +65,6 @@ namespace Sorting_Algorithms
 
                     }
 
-                    time = StaticValues.time;
-
-                    Thread.Sleep(time);
 
                 }
             }
@@ -72,7 +73,7 @@ namespace Sorting_Algorithms
         }
 
         
-        public void resetGraphics(int _j)
+        /*public void resetGraphics(int _j)
         {
             int numberSize = 10;
             int j = _j;
@@ -91,7 +92,7 @@ namespace Sorting_Algorithms
             g.DrawEllipse(pen, xPosition - xPositionSize / 4 - numberSize + xPosition * j, panel.Height / 3 + numberSize * 2,
                 xPositionSize * 2, xPositionSize * 2);
 
-        }
+        }*/
 
     }
 }
